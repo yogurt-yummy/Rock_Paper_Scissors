@@ -9,7 +9,7 @@ int main()
 
     srand(time(NULL));
 
-    int bot_choice = (rand() % 3) + 1;
+    // int bot_choice = (rand() % 3) + 1;
 
     // printf("The bot choice is %d .\n",bot_choice);
 
@@ -38,15 +38,18 @@ int main()
     {
         printf("\n");
 
-        printf("Choose one -> ");
+        printf("Choose one [Rock , Paper , Scissor] -> ");
         scanf("%d", &user_choice);
 
         int bot_choice = (rand() % 3) + 1;
 
         if (user_choice == 0)
         {
-            printf("Thanks For Playing . Bye =)\n");
+            printf("Thanks For Playing . Bye =)\n\n");
             return 0;
+        }
+        if ((user_choice != 0) && (user_choice != 1) && (user_choice != 2) && (user_choice != 3)){
+            printf("Please enter a valid Choice.\n");
         }
         if ((user_choice == 1) && (bot_choice == 1))
         {
