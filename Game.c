@@ -2,9 +2,10 @@
 
 #include <stdio.h>
 #include <stdlib.h> // I am including it to use srand and rand
-#include <time.h> // I am including it to use time()
+#include <time.h>   // I am including it to use time()
 
-int main(){
+int main()
+{
 
     srand(time(NULL));
 
@@ -17,38 +18,81 @@ int main(){
     // Paper -> 2
     // Scissors -> 3
 
-    int user_choice;
+    printf("||==================================================================================||\n");
+    printf("||                              Rock Paper Scissors                                 ||\n");
+    printf("||==================================================================================||\n");
 
-    printf("Choose one Rock Paper Scissors Shoot -> ");
-    scanf("%d",&user_choice);
+    printf("\n");
 
-    if((user_choice == 1) && (bot_choice == 1)){
-        printf("Bot Choice -> Rock\n");
-        printf("Draw\n");
-    }else if((user_choice == 1) && (bot_choice == 2)){
-        printf("Bot Choice -> Paper\n");
-        printf("You Lose!\n");
-    }else if((user_choice == 1) && (bot_choice == 3)){
-        printf("Bot Choice -> Scissors\n");
-        printf("You Win!\n");
-    }else if((user_choice == 2) && (bot_choice == 1)){
-        printf("Bot Choice -> Rock\n");
-        printf("You Lose\n");
-    }else if((user_choice == 2) && (bot_choice == 2)){
-        printf("Bot Choice -> Paper\n");
-        printf("Draw\n");
-    }else if((user_choice == 2) && (bot_choice == 3)){
-        printf("Bot Choice -> Scissors\n");
-        printf("You Lose!\n");
-    }else if((user_choice == 3) && (bot_choice == 1)){
-        printf("Bot Choice -> Rock\n");
-        printf("You Lose!\n");
-    }else if((user_choice == 3) && (bot_choice == 2)){
-        printf("Bot Choice -> Paper\n");
-        printf("You Win!\n");
-    }else if((user_choice == 3) && (bot_choice == 3)){
-        printf("Bot Choice -> Scissors\n");
-        printf("Draw\n");
+    printf("======== Guide ========\n");
+    printf("Keys : \n");
+    printf("1 -> Rock\n");
+    printf("2 -> Paper\n");
+    printf("3 -> Scissors\n");
+    printf("0 -> Exit");
+    printf("\n");
+
+    int user_choice = 99;
+
+    while (user_choice != 0)
+    {
+        printf("\n");
+
+        printf("Choose one -> ");
+        scanf("%d", &user_choice);
+
+        int bot_choice = (rand() % 3) + 1;
+
+        if (user_choice == 0)
+        {
+            printf("Thanks For Playing . Bye =)\n");
+            return 0;
+        }
+        if ((user_choice == 1) && (bot_choice == 1))
+        {
+            printf("Bot Choice -> Rock\n");
+            printf("Draw\n");
+        }
+        else if ((user_choice == 1) && (bot_choice == 2))
+        {
+            printf("Bot Choice -> Paper\n");
+            printf("You Lose!\n");
+        }
+        else if ((user_choice == 1) && (bot_choice == 3))
+        {
+            printf("Bot Choice -> Scissors\n");
+            printf("You Win!\n");
+        }
+        else if ((user_choice == 2) && (bot_choice == 1))
+        {
+            printf("Bot Choice -> Rock\n");
+            printf("You Lose!\n");
+        }
+        else if ((user_choice == 2) && (bot_choice == 2))
+        {
+            printf("Bot Choice -> Paper\n");
+            printf("Draw\n");
+        }
+        else if ((user_choice == 2) && (bot_choice == 3))
+        {
+            printf("Bot Choice -> Scissors\n");
+            printf("You Lose!\n");
+        }
+        else if ((user_choice == 3) && (bot_choice == 1))
+        {
+            printf("Bot Choice -> Rock\n");
+            printf("You Lose!\n");
+        }
+        else if ((user_choice == 3) && (bot_choice == 2))
+        {
+            printf("Bot Choice -> Paper\n");
+            printf("You Win!\n");
+        }
+        else if ((user_choice == 3) && (bot_choice == 3))
+        {
+            printf("Bot Choice -> Scissors\n");
+            printf("Draw\n");
+        }
     }
 
     return 0;
