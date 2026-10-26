@@ -48,51 +48,61 @@ int main()
             printf("Thanks For Playing . Bye =)\n\n");
             return 0;
         }
-        if ((user_choice != 0) && (user_choice != 1) && (user_choice != 2) && (user_choice != 3)){
+        if ((user_choice != 0) && (user_choice != 1) && (user_choice != 2) && (user_choice != 3))
+        {
             printf("Please enter a valid Choice.\n");
         }
         if ((user_choice == 1) && (bot_choice == 1))
         {
+            printf("Your Choice -> Rock\n");
             printf("Bot Choice -> Rock\n");
             printf("Draw\n");
         }
         else if ((user_choice == 1) && (bot_choice == 2))
         {
+            printf("Your Choice -> Rock\n");
             printf("Bot Choice -> Paper\n");
             printf("You Lose!\n");
         }
         else if ((user_choice == 1) && (bot_choice == 3))
         {
+            printf("Your Choice -> Rock\n");
             printf("Bot Choice -> Scissors\n");
             printf("You Win!\n");
         }
         else if ((user_choice == 2) && (bot_choice == 1))
         {
+            printf("Your Choice -> Paper\n");
             printf("Bot Choice -> Rock\n");
             printf("You Lose!\n");
         }
         else if ((user_choice == 2) && (bot_choice == 2))
         {
+            printf("Your Choice -> Paper\n");
             printf("Bot Choice -> Paper\n");
             printf("Draw\n");
         }
         else if ((user_choice == 2) && (bot_choice == 3))
         {
+            printf("Your Choice -> Paper\n");
             printf("Bot Choice -> Scissors\n");
             printf("You Lose!\n");
         }
         else if ((user_choice == 3) && (bot_choice == 1))
         {
+            printf("Your Choice -> Scissor\n");
             printf("Bot Choice -> Rock\n");
             printf("You Lose!\n");
         }
         else if ((user_choice == 3) && (bot_choice == 2))
         {
+            printf("Your Choice -> Scissor\n");
             printf("Bot Choice -> Paper\n");
             printf("You Win!\n");
         }
         else if ((user_choice == 3) && (bot_choice == 3))
         {
+            printf("Your Choice -> Scissor\n");
             printf("Bot Choice -> Scissors\n");
             printf("Draw\n");
         }
