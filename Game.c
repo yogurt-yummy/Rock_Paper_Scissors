@@ -32,6 +32,8 @@ int main()
     int user_choice = 99;
     int matches_played = 0;
     int matches_drew = 0;
+    int matches_lost = 0;
+    int matches_won = 0;
 
     while (user_choice != 0)
     {
@@ -57,6 +59,7 @@ int main()
             printf("Bot Choice -> Rock\n");
             printf("Draw\n");
             matches_played++;
+            matches_drew++;
         }
         else if ((user_choice == 1) && (bot_choice == 2))
         {
@@ -64,6 +67,7 @@ int main()
             printf("Bot Choice -> Paper\n");
             printf("You Lose!\n");
             matches_played++;
+            matches_lost++;
         }
         else if ((user_choice == 1) && (bot_choice == 3))
         {
@@ -71,6 +75,7 @@ int main()
             printf("Bot Choice -> Scissors\n");
             printf("You Win!\n");
             matches_played++;
+            matches_won++;
         }
         else if ((user_choice == 2) && (bot_choice == 1))
         {
@@ -78,6 +83,7 @@ int main()
             printf("Bot Choice -> Rock\n");
             printf("You Lose!\n");
             matches_played++;
+            matches_lost++;
         }
         else if ((user_choice == 2) && (bot_choice == 2))
         {
@@ -85,6 +91,7 @@ int main()
             printf("Bot Choice -> Paper\n");
             printf("Draw\n");
             matches_played++;
+            matches_drew++;
         }
         else if ((user_choice == 2) && (bot_choice == 3))
         {
@@ -92,6 +99,7 @@ int main()
             printf("Bot Choice -> Scissors\n");
             printf("You Lose!\n");
             matches_played++;
+            matches_lost++;
         }
         else if ((user_choice == 3) && (bot_choice == 1))
         {
@@ -99,6 +107,7 @@ int main()
             printf("Bot Choice -> Rock\n");
             printf("You Lose!\n");
             matches_played++;
+            matches_lost++;
         }
         else if ((user_choice == 3) && (bot_choice == 2))
         {
@@ -106,6 +115,7 @@ int main()
             printf("Bot Choice -> Paper\n");
             printf("You Win!\n");
             matches_played++;
+            matches_won++;
         }
         else if ((user_choice == 3) && (bot_choice == 3))
         {
@@ -113,12 +123,14 @@ int main()
             printf("Bot Choice -> Scissors\n");
             printf("Draw\n");
             matches_played++;
+            matches_drew++;
         }
         if(user_choice == 4){
             // printf("================================================\n");
             printf("Matches Played -> %d \n",matches_played);
-            printf("Matches Won -> \n");
-            printf("Matches Lost -> \n");
+            printf("Matches Won -> %d \n",matches_won);
+            printf("Matches Lost -> %d \n",matches_lost);
+            printf("Matches Drawn -> %d \n",matches_drew);
         }
     }
 
