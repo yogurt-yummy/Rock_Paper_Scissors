@@ -148,6 +148,7 @@ int show_game_options(void){
             return selected_option;
         }
     }
+    return 1;
 } 
 
 int show_main_menu(void)
@@ -160,7 +161,7 @@ int show_main_menu(void)
 
     char *options[] = {"Start Game", "Modes", "About Me", "Exit"};
     int option_selected = 0;
-    int user_key;
+    int user_key = 0;
 
     for (int i = 0; i < 4; i++)
     {
@@ -272,6 +273,7 @@ int show_main_menu(void)
             return option_selected;
         }
     }
+    return option_selected = 10;
 }
 
 int bot_choice_function(void) // This is function definition
@@ -315,7 +317,7 @@ int play_game(int *matches_played, int *matches_drew, int *matches_lost, int *ma
         printf("\nYour Choice -> Paper");
         printf("\nBot Choice -> Rock");
         printf("\nPaper beats Rock\n");
-        printf("\nYou Win!");
+        printf("\nYou Win!\n");
     }else if((user_choice == 1) && (bot_choice == 1)){
         system("cls");
         printf("Your Choice -> Paper\n");
@@ -381,7 +383,8 @@ int main()
     }else if(user_choice == 2){
         printf("About Me was choosen");
     }else if(user_choice == 3){
-        printf("Exit was choosen");
+        printf("Thanks for playing!\nBye =)\n");
+        return 0;
     }
 
     return 0;
