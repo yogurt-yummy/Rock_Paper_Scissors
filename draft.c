@@ -100,45 +100,51 @@ int main()
     //     printf("Selected -> %d .\n", selected);
     // }
 
-    int user_input = 0;
-    int selected = 0;
-    char *options[] = {
-        "Start Game",
-        "About ME",
-        "Exit"
-    };
+    // int user_input = 0;
+    // int selected = 0;
+    // char *options[] = {
+    //     "Start Game",
+    //     "About ME",
+    //     "Exit"
+    // };
     
-    for(int i = 0; i < 3; i++){
-        printf("%s",options[i]);
-        printf("\n");
-    }
-    while (user_input != 'x' && user_input != 'X')
-    {
-        // printf("Choose -> ");
-        user_input = _getch();
+    // for(int i = 0; i < 3; i++){
+    //     printf("%s",options[i]);
+    //     printf("\n");
+    // }
+    // while (user_input != 'x' && user_input != 'X')
+    // {
+    //     // printf("Choose -> ");
+    //     user_input = _getch();
 
-        if(user_input == 224){
-            user_input = _getch();
-        }
+    //     if(user_input == 224){
+    //         user_input = _getch();
+    //     }
 
-        if((user_input == 72) && (selected > 0)){
-            selected--;
-        }else if((user_input == 80) && (selected < 2)){
-            selected++;
-        }else if((user_input == 72) && (selected == 0)){
-            selected = 2;
-        }else if((user_input == 80) && (selected == 2)){
-            selected = 0;
-        }
-        system("cls");
-       for(int i = 0; i < 3; i++){
-        if(i == selected){
-            printf("> %s\n",options[i]);
-        }else{
-            printf(" %s\n",options[i]);
-        }
-       }
-    }
+    //     if((user_input == 72) && (selected > 0)){
+    //         selected--;
+    //     }else if((user_input == 80) && (selected < 2)){
+    //         selected++;
+    //     }else if((user_input == 72) && (selected == 0)){
+    //         selected = 2;
+    //     }else if((user_input == 80) && (selected == 2)){
+    //         selected = 0;
+    //     }
+    //     system("cls");
+    //    for(int i = 0; i < 3; i++){
+    //     if(i == selected){
+    //         printf("> %s\n",options[i]);
+    //     }else{
+    //         printf(" %s\n",options[i]);
+    //     }
+    //    }
+    // }
+
+    int user_key = 0;
+
+    user_key = _getch();
+
+    printf("The key pressed is %d .\n",user_key);
 
     return 0;
     
