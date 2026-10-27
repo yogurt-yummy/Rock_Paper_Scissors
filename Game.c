@@ -148,7 +148,8 @@ int show_game_options(void){
             return selected_option;
         }
     }
-    return 1;
+    system("cls");
+    show_main_menu();
 } 
 
 int show_main_menu(void)
@@ -273,7 +274,7 @@ int show_main_menu(void)
             return option_selected;
         }
     }
-    return option_selected = 10;
+    return option_selected = 4;
 }
 
 int bot_choice_function(void) // This is function definition
@@ -385,7 +386,9 @@ int main()
     }else if(user_choice == 3){
         printf("Thanks for playing!\nBye =)\n");
         return 0;
+    }else if(user_choice == 4){
+        printf("Thanks for stopping by.\n");
+        printf("Have a nice day =)\n");
     }
-
     return 0;
 }
