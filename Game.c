@@ -7,7 +7,7 @@
 
 int bot_choice_function(void); // I am making this function to get the bot's choice (This is function prototype)
 
-void play_game(int, int *, int *, int *, int *); // I am making this function to write the processes of the game here (This is also a function prototype)
+int play_game(int, int *, int *, int *, int *); // I am making this function to write the processes of the game here (This is also a function prototype)
 
 int show_main_menu(void); // I am making this function to show the main menu and also return what the user selected (This is a function prototype)
 
@@ -24,7 +24,7 @@ int show_game_options(void)
     system("cls");
 
     printf("||==================================================================================||\n");
-    printf("||                              Rock Paper Scissors                                 ||\n");
+    printf("||                       Rock Paper Scissors - Choose One =)                        ||\n");
     printf("||==================================================================================||\n");
 
     printf("\n");
@@ -290,7 +290,7 @@ int bot_choice_function(void) // This is function definition
     return random_number; // We return random_number so that we use it at other places (maybe also pass this value to another function)
 }
 
-void play_game(int user_choice, int *matches_played, int *matches_drew, int *matches_lost, int *matches_won)
+int play_game(int user_choice, int *matches_played, int *matches_drew, int *matches_lost, int *matches_won)
 {
 
     int bot_choice = bot_choice_function();
@@ -367,8 +367,15 @@ void play_game(int user_choice, int *matches_played, int *matches_drew, int *mat
         printf("Since both are Scissor\n");
         printf("\nIts a Draw!\n");
     }
-    printf("Press any key to continue playing...");
-    _getch();
+    printf("Press any key to continue playing...\n");
+    printf("Press X to go back to main menu.\n");
+    int user_key = _getch();
+    if ((user_key == 'x') || (user_key == 'X'))
+    {
+        system("cls");
+        return (-1);
+    }
+    return 0;
 }
 
 int main()
@@ -397,23 +404,32 @@ int main()
     int *ptr_matches_won;
     ptr_matches_won = &matches_won;
 
-    int main_menu_return_value = 0;
+    int play_game_return_value = 0;
 
     while ((user_choice = show_main_menu()) != (-1))
     {
         if (user_choice == 0)
         {
-            while ((game_selected_option = show_game_options()) != (-1))
+            game_selected_option = show_game_options();
+            if ((game_selected_option != (-1)))
             {
-                play_game(game_selected_option, &matches_played, &matches_drew, &matches_lost,&matches_won);
+                while ((play_game_return_value = play_game(game_selected_option, &matches_played, &matches_drew, &matches_lost, &matches_won)) != (-1))
+                {
+                }
             }
-        }else if(user_choice == 1){
+        }
+        else if (user_choice == 1)
+        {
             printf("Modes Function to be executed here .");
             return 0;
-        }else if(user_choice == 2){
+        }
+        else if (user_choice == 2)
+        {
             printf("About Me function to be executed here .");
             return 0;
-        }else if(user_choice == 3){
+        }
+        else if (user_choice == 3)
+        {
             printf("Thanks for playing :)");
             return 0;
         }
