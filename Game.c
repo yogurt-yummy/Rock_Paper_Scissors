@@ -56,7 +56,7 @@ int show_game_options(void)
             system("cls");
 
             printf("||==================================================================================||\n");
-            printf("||                              Rock Paper Scissors                                 ||\n");
+            printf("||                       Rock Paper Scissors - Choose One =)                        ||\n");
             printf("||==================================================================================||\n");
 
             printf("\n");
@@ -80,7 +80,7 @@ int show_game_options(void)
             system("cls");
 
             printf("||==================================================================================||\n");
-            printf("||                              Rock Paper Scissors                                 ||\n");
+            printf("||                       Rock Paper Scissors - Choose One =)                        ||\n");
             printf("||==================================================================================||\n");
 
             printf("\n");
@@ -104,7 +104,7 @@ int show_game_options(void)
             system("cls");
 
             printf("||==================================================================================||\n");
-            printf("||                              Rock Paper Scissors                                 ||\n");
+            printf("||                       Rock Paper Scissors - Choose One =)                        ||\n");
             printf("||==================================================================================||\n");
 
             printf("\n");
@@ -128,7 +128,7 @@ int show_game_options(void)
             system("cls");
 
             printf("||==================================================================================||\n");
-            printf("||                              Rock Paper Scissors                                 ||\n");
+            printf("||                       Rock Paper Scissors - Choose One =)                        ||\n");
             printf("||==================================================================================||\n");
 
             printf("\n");
@@ -385,7 +385,7 @@ int main()
     int matches_drew = 0;
     int matches_lost = 0;
     int matches_won = 0;
-    int game_selected_option;
+    int show_game_option_return_value;
 
     int user_choice;
 
@@ -407,33 +407,49 @@ int main()
     int play_game_return_value = 0;
 
     while ((user_choice = show_main_menu()) != (-1))
-    {
+    { // until the user presses x in main menu -> show main menu
         if (user_choice == 0)
         {
-            game_selected_option = show_game_options();
-            if ((game_selected_option != (-1)))
-            {
-                while ((play_game_return_value = play_game(game_selected_option, &matches_played, &matches_drew, &matches_lost, &matches_won)) != (-1))
-                {
+            while ((show_game_option_return_value = show_game_options()) != (-1))
+            { // until the user presses x in game options -> show game options
+                play_game_return_value = play_game(show_game_option_return_value, &matches_played,&matches_drew,&matches_lost,&matches_won);
+                if(play_game_return_value == (-1)){
+                    break;
                 }
+
             }
-        }
-        else if (user_choice == 1)
-        {
-            printf("Modes Function to be executed here .");
-            return 0;
-        }
-        else if (user_choice == 2)
-        {
-            printf("About Me function to be executed here .");
-            return 0;
-        }
-        else if (user_choice == 3)
-        {
-            printf("Thanks for playing :)");
-            return 0;
+            // if user presses x in game option -> show main menu
         }
     }
+
+    // while ((user_choice = show_main_menu()) != (-1))
+    // {
+    //     if (user_choice == 0)
+    //     {
+    //         game_selected_option = show_game_options();
+    //         if ((game_selected_option != (-1)))
+    //         {
+    //             while ((play_game_return_value = play_game(game_selected_option, &matches_played, &matches_drew, &matches_lost, &matches_won)) != (-1))
+    //             {
+    //             }
+    //         }
+    //     }
+    //     else if (user_choice == 1)
+    //     {
+    //         printf("Modes Function to be executed here .");
+    //         return 0;
+    //     }
+    //     else if (user_choice == 2)
+    //     {
+    //         printf("About Me function to be executed here .");
+    //         return 0;
+    //     }
+    //     else if (user_choice == 3)
+    //     {
+    //         printf("Thanks for playing :)");
+    //         return 0;
+    //     }
+    // }
 
     return 0;
 }
