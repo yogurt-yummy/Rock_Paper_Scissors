@@ -385,6 +385,11 @@ int show_about_me(void)
 
     system("cls");
 
+    printf("||========================================================================||\n");
+    printf("||                                About Me                                ||\n"); 
+    printf("||========================================================================||\n");
+    printf("\n");
+
     printf("Hey Player ! Yummy Yogurt Here!\n");
     printf("I am a student . I am making this project to learn and practise C . \nThis is a mini project I am building and I hope you will enjoy playing this little game of mine . \n");
     printf("Thats all..\n");
@@ -458,8 +463,9 @@ int main()
         }
         else if (user_choice == 3)
         {
-            printf("\nThanks for playing!\n");
-            printf("Have a nice day =)\n");
+            printf("||============================================================================||\n");
+            printf("||                 Thanks for Playing ! Have a nice day =)                    ||\n");
+            printf("||============================================================================||\n");
             printf("\n");
             return 0;
         }
