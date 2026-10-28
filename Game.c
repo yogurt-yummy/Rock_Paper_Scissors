@@ -13,6 +13,8 @@ int show_main_menu(void); // I am making this function to show the main menu and
 
 int show_game_options(void); // I am making this function to show the game options like Rock , Paper and Scissors (This one is also a funtion prototype)
 
+int show_about_me(void); // I am making this function to show about me section (This is also a function prototype)
+
 int show_game_options(void)
 {
     char *game_options[] = {"Rock", "Paper", "Scissor"};
@@ -378,6 +380,25 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
     return 0;
 }
 
+int show_about_me(void)
+{
+
+    system("cls");
+
+    printf("Hey Player ! Yummy Yogurt Here!\n");
+    printf("I am a student . I am making this project to learn and practise C . \nThis is a mini project I am building and I hope you will enjoy playing this little game of mine . \n");
+    printf("Thats all..\n");
+    printf("Thank You So much for your time!\n");
+    printf("Have a nice day =)\n");
+    printf("\n");
+    printf("Press X to go back to main menu...\n");
+
+    int user_choice = _getch();
+
+    if((user_choice == 'x') || (user_choice == 'X')){
+        return (-1);
+    }
+}
 int main()
 {
 
@@ -405,6 +426,7 @@ int main()
     ptr_matches_won = &matches_won;
 
     int play_game_return_value = 0;
+    int show_about_me_return_value = 0;
 
     while ((user_choice = show_main_menu()) != (-1))
     { // until the user presses x in main menu -> show main menu
@@ -412,44 +434,37 @@ int main()
         {
             while ((show_game_option_return_value = show_game_options()) != (-1))
             { // until the user presses x in game options -> show game options
-                play_game_return_value = play_game(show_game_option_return_value, &matches_played,&matches_drew,&matches_lost,&matches_won);
-                if(play_game_return_value == (-1)){
+                play_game_return_value = play_game(show_game_option_return_value, &matches_played, &matches_drew, &matches_lost, &matches_won);
+                if (play_game_return_value == (-1))
+                {
+                    // if user presses x in game option -> show main menu
                     break;
                 }
-
             }
-            // if user presses x in game option -> show main menu
+        }
+        else if (user_choice == 1)
+        {
+            printf("Modes Function\n");
+            return 0;
+        }
+        else if (user_choice == 2)
+        {
+            while ((show_about_me_return_value = show_about_me()) != (-1))
+            {
+                
+            }
+            system("cls");
+            
+        }
+        else if (user_choice == 3)
+        {
+            printf("\nThanks for playing!\n");
+            printf("Have a nice day =)\n");
+            printf("\n");
+            return 0;
         }
     }
-
-    // while ((user_choice = show_main_menu()) != (-1))
-    // {
-    //     if (user_choice == 0)
-    //     {
-    //         game_selected_option = show_game_options();
-    //         if ((game_selected_option != (-1)))
-    //         {
-    //             while ((play_game_return_value = play_game(game_selected_option, &matches_played, &matches_drew, &matches_lost, &matches_won)) != (-1))
-    //             {
-    //             }
-    //         }
-    //     }
-    //     else if (user_choice == 1)
-    //     {
-    //         printf("Modes Function to be executed here .");
-    //         return 0;
-    //     }
-    //     else if (user_choice == 2)
-    //     {
-    //         printf("About Me function to be executed here .");
-    //         return 0;
-    //     }
-    //     else if (user_choice == 3)
-    //     {
-    //         printf("Thanks for playing :)");
-    //         return 0;
-    //     }
-    // }
+    printf("\nThanks for stopping by >.<\n\n");
 
     return 0;
 }
