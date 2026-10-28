@@ -166,11 +166,11 @@ int show_main_menu(void)
 
     printf("\n");
 
-    char *options[] = {"Start Game", "Modes", "About Me", "Exit"};
+    char *options[] = {"Start Game", "Modes", "Reports", "About Me", "Exit"};
     int option_selected = 0;
     int user_key = 0;
 
-    for (int i = 0; i < 4; i++)
+    for (int i = 0; i < 5; i++)
     {
         if (i == option_selected)
         {
@@ -199,7 +199,7 @@ int show_main_menu(void)
             printf("||==================================================================================||\n");
 
             printf("\n");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (i == option_selected)
                 {
@@ -211,7 +211,7 @@ int show_main_menu(void)
                 }
             }
         }
-        else if ((user_key == 80) && (option_selected < 3))
+        else if ((user_key == 80) && (option_selected < 4))
         {
             option_selected++;
             system("cls");
@@ -220,7 +220,7 @@ int show_main_menu(void)
             printf("||==================================================================================||\n");
 
             printf("\n");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (i == option_selected)
                 {
@@ -234,14 +234,14 @@ int show_main_menu(void)
         }
         else if ((user_key == 72) && (option_selected == 0))
         {
-            option_selected = 3;
+            option_selected = 4;
             system("cls");
             printf("||==================================================================================||\n");
             printf("||                              Rock Paper Scissors                                 ||\n");
             printf("||==================================================================================||\n");
 
             printf("\n");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (option_selected == i)
                 {
@@ -253,7 +253,7 @@ int show_main_menu(void)
                 }
             }
         }
-        else if ((user_key == 80) && (option_selected == 3))
+        else if ((user_key == 80) && (option_selected == 4))
         {
 
             option_selected = 0;
@@ -263,7 +263,7 @@ int show_main_menu(void)
             printf("||==================================================================================||\n");
 
             printf("\n");
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 5; i++)
             {
                 if (option_selected == i)
                 {
@@ -386,7 +386,7 @@ int show_about_me(void)
     system("cls");
 
     printf("||========================================================================||\n");
-    printf("||                                About Me                                ||\n"); 
+    printf("||                                About Me                                ||\n");
     printf("||========================================================================||\n");
     printf("\n");
 
@@ -400,7 +400,8 @@ int show_about_me(void)
 
     int user_choice = _getch();
 
-    if((user_choice == 'x') || (user_choice == 'X')){
+    if ((user_choice == 'x') || (user_choice == 'X'))
+    {
         return (-1);
     }
 }
@@ -452,18 +453,20 @@ int main()
             printf("Modes Function\n");
             return 0;
         }
-        else if (user_choice == 2)
-        {
-            while ((show_about_me_return_value = show_about_me()) != (-1))
-            {
-                
-            }
-            system("cls");
-            
+        else if (user_choice == 2){
+            printf("Reports function\n");
+            return 0;
         }
         else if (user_choice == 3)
         {
-            printf("||============================================================================||\n");
+            while ((show_about_me_return_value = show_about_me()) != (-1))
+            {
+            }
+            system("cls");
+        }
+        else if (user_choice == 4)
+        {
+            printf("\n||============================================================================||\n");
             printf("||                 Thanks for Playing ! Have a nice day =)                    ||\n");
             printf("||============================================================================||\n");
             printf("\n");
