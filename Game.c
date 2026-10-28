@@ -15,6 +15,8 @@ int show_game_options(void); // I am making this function to show the game optio
 
 int show_about_me(void); // I am making this function to show about me section (This is also a function prototype)
 
+int show_report(int *, int *, int *, int *); // I am making this function to show the report of the games played by the player (also this is a function prototype)
+
 int show_game_options(void)
 {
     char *game_options[] = {"Rock", "Paper", "Scissor"};
@@ -42,6 +44,7 @@ int show_game_options(void)
             printf(" %s\n", game_options[i]);
         }
     }
+    printf("\n Press X to go back to main menu...\n");
 
     while ((user_key != 'x') && (user_key != 'X'))
     {
@@ -74,6 +77,7 @@ int show_game_options(void)
                     printf(" %s\n", game_options[i]);
                 }
             }
+            printf("\n Press X to go back to main menu....\n");
         }
         else if ((user_key == 80) && (selected_option < 2))
         {
@@ -98,6 +102,7 @@ int show_game_options(void)
                     printf(" %s\n", game_options[i]);
                 }
             }
+            printf("\n Press X to go back to main menu....\n");
         }
         else if ((user_key == 80) && (selected_option == 2))
         {
@@ -122,6 +127,7 @@ int show_game_options(void)
                     printf(" %s\n", game_options[i]);
                 }
             }
+            printf("\n Press X to go back to main menu.....\n");
         }
         else if ((user_key == 72) && (selected_option == 0))
         {
@@ -146,6 +152,7 @@ int show_game_options(void)
                     printf(" %s\n", game_options[i]);
                 }
             }
+            printf("\n Press X to go back to main menu....\n");
         }
         if (user_key == 13)
         {
@@ -304,6 +311,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("\nBot Choice -> Rock");
         printf("\nSince both are Rock\n");
         printf("\nIts a Draw!\n");
+        (*matches_played)++;
+        (*matches_drew)++;
     }
     else if ((user_choice == 0) && (bot_choice == 1))
     {
@@ -312,6 +321,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("\nBot Choice -> Paper");
         printf("\nPaper beats Rock\n");
         printf("\nYou Lose!\n");
+        (*matches_played)++;
+        (*matches_lost)++;
     }
     else if ((user_choice == 0) && (bot_choice == 2))
     {
@@ -320,6 +331,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("\nBot Choice -> Scissor");
         printf("\nRock beats Scissor\n");
         printf("\nYou Win!\n");
+        (*matches_played)++;
+        (*matches_won)++;
     }
     else if ((user_choice == 1) && (bot_choice == 0))
     {
@@ -328,6 +341,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("\nBot Choice -> Rock");
         printf("\nPaper beats Rock\n");
         printf("\nYou Win!\n");
+        (*matches_played)++;
+        (*matches_won)++;
     }
     else if ((user_choice == 1) && (bot_choice == 1))
     {
@@ -336,6 +351,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("Bot Choice -> Paper\n");
         printf("Since both Paper\n");
         printf("\nIts a draw!\n");
+        (*matches_played)++;
+        (*matches_drew)++;
     }
     else if ((user_choice == 1) && (bot_choice == 2))
     {
@@ -344,6 +361,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("Bot Choice -> Scissor\n");
         printf("Scissor beats Paper\n");
         printf("\nYou Lose!\n");
+        (*matches_played)++;
+        (*matches_lost)++;
     }
     else if ((user_choice == 2) && (bot_choice == 0))
     {
@@ -352,6 +371,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("Bot Choice -> Rock\n");
         printf("Rock beats Scissor\n");
         printf("\nYou Lose!\n");
+        (*matches_played)++;
+        (*matches_lost)++;
     }
     else if ((user_choice == 2) && (bot_choice == 1))
     {
@@ -360,6 +381,8 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("Bot Choice -> Paper\n");
         printf("Scissor beats Paper\n");
         printf("\nYou Win!\n");
+        (*matches_played)++;
+        (*matches_won)++;
     }
     else if ((user_choice == 2) && (bot_choice == 2))
     {
@@ -368,9 +391,11 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         printf("Bot Choice -> Scissor\n");
         printf("Since both are Scissor\n");
         printf("\nIts a Draw!\n");
+        (*matches_played)++;
+        (*matches_drew)++;
     }
-    printf("Press any key to continue playing...\n");
-    printf("Press X to go back to main menu.\n");
+    printf("\nPress X to go back to main menu....\n");
+    printf("\nPress any other key (except X) to continue playing...\n");
     int user_key = _getch();
     if ((user_key == 'x') || (user_key == 'X'))
     {
@@ -405,6 +430,32 @@ int show_about_me(void)
         return (-1);
     }
 }
+
+int show_report(int *matches_played, int *matches_drew, int *matches_lost, int *matches_won)
+{ // This is function definition
+
+    int user_key;
+    while ((user_key != 'x') && (user_key != 'X'))
+    {
+        system("cls");
+        printf("||====================================================================||\n");
+        printf("||                                Report                              ||\n");
+        printf("||====================================================================||\n");
+
+        printf("\n");
+        printf("\n");
+        printf("Matches Played -> %d\n", *matches_played);
+        printf("Matches Won -> %d\n",*matches_won);
+        printf("Matches Lost -> %d\n",*matches_lost);
+        printf("Matches drawn -> %d\n",*matches_drew);
+
+        printf("\n");
+
+        printf("Press X to go back to main menu...\n\n");
+        user_key = _getch();
+    }
+    return (-1);
+}
 int main()
 {
 
@@ -433,6 +484,7 @@ int main()
 
     int play_game_return_value = 0;
     int show_about_me_return_value = 0;
+    int show_report_return_value = 0;
 
     while ((user_choice = show_main_menu()) != (-1))
     { // until the user presses x in main menu -> show main menu
@@ -453,9 +505,12 @@ int main()
             printf("Modes Function\n");
             return 0;
         }
-        else if (user_choice == 2){
-            printf("Reports function\n");
-            return 0;
+        else if (user_choice == 2)
+        {
+            while ((show_report_return_value = show_report(&matches_played, &matches_drew, &matches_lost, &matches_won)) != (-1))
+            {
+            }
+            system("cls");
         }
         else if (user_choice == 3)
         {
