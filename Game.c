@@ -444,12 +444,39 @@ int show_report(int *matches_played, int *matches_drew, int *matches_lost, int *
 
         printf("\n");
         printf("\n");
+
+        float win_rate;
+        float lose_rate;
+        float draw_rate;
+
+        win_rate = ((float)(*matches_won) / (float)(*matches_played)) * (float)100;
+        lose_rate = ((float)(*matches_lost) / (float)(*matches_played)) * (float)100;
+        draw_rate = ((float)(*matches_drew) / (float)(*matches_played)) * (float)100;
+
         printf("Matches Played -> %d\n", *matches_played);
-        printf("Matches Won -> %d\n",*matches_won);
-        printf("Matches Lost -> %d\n",*matches_lost);
-        printf("Matches drawn -> %d\n",*matches_drew);
+        printf("Matches Won -> %d\n", *matches_won);
+        printf("Matches Lost -> %d\n", *matches_lost);
+        printf("Matches drawn -> %d\n", *matches_drew);
 
         printf("\n");
+
+        if ((*matches_played) == 0)
+        {
+            printf("Win Rate -> 0 %%\n");
+            printf("Lose Rate -> 0 %%\n");
+            printf("Draw Rate -> 0 %%\n");
+
+            printf("\n");
+        }
+        else
+        {
+
+            printf("Win Rate -> %.2f %%\n", win_rate);
+            printf("Lose Rate -> %.2f %%\n", lose_rate);
+            printf("Draw Rate -> %.2f %%\n", draw_rate);
+
+            printf("\n");
+        }
 
         printf("Press X to go back to main menu...\n\n");
         user_key = _getch();
