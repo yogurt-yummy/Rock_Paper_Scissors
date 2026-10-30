@@ -7,7 +7,7 @@
 
 int bot_choice_function(void); // I am making this function to get the bot's choice (This is function prototype)
 
-int play_game(int, int *, int *, int *, int *); // I am making this function to write the processes of the game here (This is also a function prototype)
+int play_game(FILE *, int, int *, int *, int *, int *); // I am making this function to write the processes of the game here (This is also a function prototype)
 
 int show_main_menu(void); // I am making this function to show the main menu and also return what the user selected (This is a function prototype)
 
@@ -299,7 +299,7 @@ int bot_choice_function(void) // This is function definition
     return random_number; // We return random_number so that we use it at other places (maybe also pass this value to another function)
 }
 
-int play_game(int user_choice, int *matches_played, int *matches_drew, int *matches_lost, int *matches_won)
+int play_game(FILE *report_file_ptr, int user_choice, int *matches_played, int *matches_drew, int *matches_lost, int *matches_won)
 {
 
     int bot_choice = bot_choice_function();
@@ -394,6 +394,15 @@ int play_game(int user_choice, int *matches_played, int *matches_drew, int *matc
         (*matches_played)++;
         (*matches_drew)++;
     }
+
+    report_file_ptr = fopen("Report.txt", "w");
+
+    if (report_file_ptr == NULL)
+    {
+        printf("Couldnt find the report file . Creating one...");
+    }
+    fprintf(report_file_ptr, "%d\t%d\t%d\t%d\t", (*matches_played), (*matches_won), (*matches_lost), (*matches_drew));
+
     printf("\nPress X to go back to main menu....\n");
     printf("\nPress any other key (except X) to continue playing...\n");
     int user_key = _getch();
@@ -483,8 +492,22 @@ int show_report(int *matches_played, int *matches_drew, int *matches_lost, int *
     }
     return (-1);
 }
+
 int main()
 {
+    FILE *report_file_ptr;
+
+    report_file_ptr = fopen("Report.txt", "r");
+
+    if (report_file_ptr == NULL)
+    {
+        // printf("An error has occured opening the Report.txt file.\n");
+        // return 1;
+    }
+    else
+    {
+        printf("Report.txt file is ready to update the reports.\n");
+    }
 
     int matches_played = 0;
     int matches_drew = 0;
@@ -509,6 +532,8 @@ int main()
     int *ptr_matches_won;
     ptr_matches_won = &matches_won;
 
+    fscanf(report_file_ptr, "%d\t%d\t%d\t%d\t%d", &matches_played, &matches_won, &matches_lost, &matches_drew);
+
     int play_game_return_value = 0;
     int show_about_me_return_value = 0;
     int show_report_return_value = 0;
@@ -519,7 +544,7 @@ int main()
         {
             while ((show_game_option_return_value = show_game_options()) != (-1))
             { // until the user presses x in game options -> show game options
-                play_game_return_value = play_game(show_game_option_return_value, &matches_played, &matches_drew, &matches_lost, &matches_won);
+                play_game_return_value = play_game(report_file_ptr, show_game_option_return_value, &matches_played, &matches_drew, &matches_lost, &matches_won);
                 if (play_game_return_value == (-1))
                 {
                     // if user presses x in game option -> show main menu
