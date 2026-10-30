@@ -292,8 +292,6 @@ int show_main_menu(void)
 
 int bot_choice_function(void) // This is function definition
 {
-    srand(time(NULL)); // Time (null) is used for seed
-
     int random_number = (rand() % 3); // Random number between 0 to 2 will be genereated and stored
 
     return random_number; // We return random_number so that we use it at other places (maybe also pass this value to another function)
@@ -411,6 +409,7 @@ int play_game(FILE *report_file_ptr, int user_choice, int *matches_played, int *
         system("cls");
         return (-1);
     }
+    fclose(report_file_ptr);
     return 0;
 }
 
@@ -497,6 +496,8 @@ int main()
 {
     FILE *report_file_ptr;
 
+    srand(time(NULL)); // Time (null) is used for seed
+
     report_file_ptr = fopen("Report.txt", "r");
 
     if (report_file_ptr == NULL)
@@ -577,5 +578,6 @@ int main()
     }
     printf("\nThanks for stopping by >.<\n\n");
 
+    fclose(report_file_ptr);
     return 0;
 }
