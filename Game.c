@@ -507,7 +507,7 @@ int main()
     }
     else
     {
-        printf("Report.txt file is ready to update the reports.\n");
+        // printf("Report.txt file is ready to update the reports.\n");
     }
 
     int matches_played = 0;

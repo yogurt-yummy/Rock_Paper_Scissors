@@ -7,6 +7,8 @@
 int main()
 {
 
+    printf("The Main Game is on Game.exe , this one has some code i used for testing and experimenting , You can still see the codes , its commented out though.\n");
+
     // int user_input;
 
     // printf("Enter any key : ");
@@ -87,7 +89,7 @@ int main()
     //     if ((user_input == 72) && (selected > 0))
     //     {
     //         selected--;
-            
+
     //     }
     //     else if ((user_input == 80) && (selected < 2))
     //     {
@@ -107,7 +109,7 @@ int main()
     //     "About ME",
     //     "Exit"
     // };
-    
+
     // for(int i = 0; i < 3; i++){
     //     printf("%s",options[i]);
     //     printf("\n");
@@ -140,12 +142,11 @@ int main()
     //    }
     // }
 
-    int user_key = 0;
+    // int user_key = 0;
 
-    user_key = _getch();
+    // user_key = _getch();
 
-    printf("The key pressed is %d .\n",user_key);
+    // printf("The key pressed is %d .\n",user_key);
 
     return 0;
-    
 }

@@ -5,107 +5,108 @@
 int main()
 {
 
-    int user_input = 0;
-    int selected = 0;
+    printf("The Main Game is on Game.exe , this one has some code i used for testing and experimenting , You can still see the codes , its commented out though.\n");
+    // int user_input = 0;
+    // int selected = 0;
 
-    char *options[] = {
-        "Play Game",
-        "About US",
-        "Exit"};
+    // char *options[] = {
+    //     "Play Game",
+    //     "About US",
+    //     "Exit"};
 
-    system("cls");
-    for (int i = 0; i < 3; i++)
-    {
-        if (selected == i)
-        {
-            printf("> %s\n", options[i]);
-        }
-        else
-        {
-            printf(" %s\n", options[i]);
-        }
-    }
+    // system("cls");
+    // for (int i = 0; i < 3; i++)
+    // {
+    //     if (selected == i)
+    //     {
+    //         printf("> %s\n", options[i]);
+    //     }
+    //     else
+    //     {
+    //         printf(" %s\n", options[i]);
+    //     }
+    // }
 
-    while (user_input != 'x' && user_input != 'X')
-    {
-        user_input = _getch();
-        if (user_input == 224)
-        {
-            user_input = _getch();
-        }
-        if ((user_input == 80) && (selected < 2))
-        {
-            system("cls");
-            if ((selected == 2) && (user_input == 80))
-            {
-                selected = 0;
-            }
-            selected++;
-            for (int i = 0; i < 3; i++)
-            {
-                if (selected == i)
-                {
-                    printf("> %s\n", options[i]);
-                }
-                else
-                {
-                    printf(" %s\n", options[i]);
-                }
-            }
-        }
-        else if ((user_input == 72) && (selected > 0))
-        {
-            if ((selected == 0) && (user_input == 72))
-            {
-                selected = 2;
-            }
-            system("cls");
-            selected--;
-            for (int i = 0; i < 3; i++)
-            {
-                if (selected == i)
-                {
-                    printf("> %s\n", options[i]);
-                }
-                else
-                {
-                    printf(" %s\n", options[i]);
-                }
-            }
-        }else if ((user_input == 72) && (selected == 0))
-        {
-            selected = 2;
-            system("cls");
-            // selected--;
-            for (int i = 0; i < 3; i++)
-            {
-                if (selected == i)
-                {
-                    printf("> %s\n", options[i]);
-                }
-                else
-                {
-                    printf(" %s\n", options[i]);
-                }
-            }
-        }else if ((user_input == 80) && (selected == 2))
-        {
-            selected = 0;
-            system("cls");
-            // selected--;
-            for (int i = 0; i < 3; i++)
-            {
-                if (selected == i)
-                {
-                    printf("> %s\n", options[i]);
-                }
-                else
-                {
-                    printf(" %s\n", options[i]);
-                }
-            }
-        }
-        // if(user_ke)
-    }
+    // while (user_input != 'x' && user_input != 'X')
+    // {
+    //     user_input = _getch();
+    //     if (user_input == 224)
+    //     {
+    //         user_input = _getch();
+    //     }
+    //     if ((user_input == 80) && (selected < 2))
+    //     {
+    //         system("cls");
+    //         if ((selected == 2) && (user_input == 80))
+    //         {
+    //             selected = 0;
+    //         }
+    //         selected++;
+    //         for (int i = 0; i < 3; i++)
+    //         {
+    //             if (selected == i)
+    //             {
+    //                 printf("> %s\n", options[i]);
+    //             }
+    //             else
+    //             {
+    //                 printf(" %s\n", options[i]);
+    //             }
+    //         }
+    //     }
+    //     else if ((user_input == 72) && (selected > 0))
+    //     {
+    //         if ((selected == 0) && (user_input == 72))
+    //         {
+    //             selected = 2;
+    //         }
+    //         system("cls");
+    //         selected--;
+    //         for (int i = 0; i < 3; i++)
+    //         {
+    //             if (selected == i)
+    //             {
+    //                 printf("> %s\n", options[i]);
+    //             }
+    //             else
+    //             {
+    //                 printf(" %s\n", options[i]);
+    //             }
+    //         }
+    //     }else if ((user_input == 72) && (selected == 0))
+    //     {
+    //         selected = 2;
+    //         system("cls");
+    //         // selected--;
+    //         for (int i = 0; i < 3; i++)
+    //         {
+    //             if (selected == i)
+    //             {
+    //                 printf("> %s\n", options[i]);
+    //             }
+    //             else
+    //             {
+    //                 printf(" %s\n", options[i]);
+    //             }
+    //         }
+    //     }else if ((user_input == 80) && (selected == 2))
+    //     {
+    //         selected = 0;
+    //         system("cls");
+    //         // selected--;
+    //         for (int i = 0; i < 3; i++)
+    //         {
+    //             if (selected == i)
+    //             {
+    //                 printf("> %s\n", options[i]);
+    //             }
+    //             else
+    //             {
+    //                 printf(" %s\n", options[i]);
+    //             }
+    //         }
+    //     }
+    //     // if(user_ke)
+    // }
     return 0;
 }
